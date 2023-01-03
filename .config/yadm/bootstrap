@@ -1,9 +1,39 @@
 #!/bin/sh
 
+# Update packages
+sudo apt update
+
+# Install tooling
+install_node() {
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
+    nvm install --latest
+}
+
+install_asdf() {
+    git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.10.2
+}
+
+install_python() {
+    sudo apt install -y build-essential libssl-dev libreadline-dev libbz2-dev libsqlite3-dev zlib1g-dev libffi-dev liblzma-dev python3.10-distutils
+    ~/.asdf/bin/asdf plugin-add python
+    ~/.asdf/bin/asdf install python 3.10.9
+    ~/.asdf/bin/asdf global python 3.10.9
+
+    curl -sSL https://install.python-poetry.org | python3 -
+}
+
+install_node
+install_asdf
+install_python
+
+# Install customizations
 install_fish() {
     sudo apt-add-repository -y ppa:fish-shell/release-3
     sudo apt update
     sudo apt install -y fish
+
+    fish -c "curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher"
+    fish -c "fisher update"
 }
 
 install_starship() {
@@ -15,7 +45,7 @@ configure_vim() {
 }
 
 
-
 install_fish
+install_starship
 configure_vim
 

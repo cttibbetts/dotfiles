@@ -18,10 +18,9 @@ source ~/.config/fish/dircolors.fish
 set KUBE_EDITOR /mnt/c/Program\ Files/Sublime\ Text\ 3/subl.exe
 set HELM_EXPERIMENTAL_OCI 1
 
-set NPM_TOKEN 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
-
 nvm use 17
-source ~/.asdf/asdf.fish
+. ~/.asdf/asdf.fish
+. ~/.asdf/completions/asdf.fish
 
 starship init fish | source
 
