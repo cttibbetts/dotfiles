@@ -32,11 +32,11 @@ install_fish() {
     sudo apt update
     sudo apt install -y fish
 
-    fish -N -c "curl -sL https://git.io/fisher | source && fisher udpate"
+    fish -c "curl -sL https://git.io/fisher | source && fisher udpate"
 }
 
 install_starship() {
-    curl -sS https://starship.rs/install.sh | sh
+    curl -sS https://starship.rs/install.sh | sh -s -- -y
 }
 
 configure_vim() {
