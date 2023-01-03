@@ -1,0 +1,21 @@
+#!/bin/sh
+
+install_fish() {
+    sudo apt-add-repository -y ppa:fish-shell/release-3
+    sudo apt update
+    sudo apt install -y fish
+}
+
+install_starship() {
+    curl -sS https://starship.rs/install.sh | sh
+}
+
+configure_vim() {
+    vim +PlugInstall +qa
+}
+
+
+
+install_fish
+configure_vim
+

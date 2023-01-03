@@ -1,9 +1,19 @@
+" Install vim-plug if not found
+if empty(glob('~/.vim/autoload/plug.vim'))
+    silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+endif
+
+" Run PlugInstall if there are missing plugins
+autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
+    \| PlugInstall --sync | source $MYVIMRC
+\|endif
+
 " 1 important {{{
 call plug#begin('~/.vim/plugged')
 
 Plug 'fatih/vim-go'
 Plug 'itchyny/lightline.vim'
-Plug 'Shougo/unite.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'Yggdroot/indentLine'
 Plug 'bogado/file-line'
@@ -113,12 +123,6 @@ let g:lightline = {
     \ 'subseparator': { 'left': '⮁', 'right': '⮃' }
 \ }
 set laststatus=2
-
-" }}}
-" unite {{{
-
-call unite#filters#matcher_default#use(['matcher-fuzzy'])
-call unite#filters#sorter_default#use(['sorter-rank'])
 
 " }}}
 " syntastic {{{
