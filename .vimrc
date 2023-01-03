@@ -14,7 +14,6 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'fatih/vim-go'
 Plug 'itchyny/lightline.vim'
-Plug 'Shougo/unite.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'Yggdroot/indentLine'
 Plug 'bogado/file-line'
@@ -124,12 +123,6 @@ let g:lightline = {
     \ 'subseparator': { 'left': '⮁', 'right': '⮃' }
 \ }
 set laststatus=2
-
-" }}}
-" unite {{{
-
-call unite#filters#matcher_default#use(['matcher-fuzzy'])
-call unite#filters#sorter_default#use(['sorter-rank'])
 
 " }}}
 " syntastic {{{
