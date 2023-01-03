@@ -6,7 +6,7 @@ sudo apt update
 # Install tooling
 install_node() {
     curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
-    nvm install --latest
+    nvm install --lts
 }
 
 install_asdf() {
