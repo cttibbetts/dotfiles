@@ -22,9 +22,18 @@ install_python() {
     curl -sSL https://install.python-poetry.org | python3 -
 }
 
+install_docker() {
+    curl -fsSL https://gist.githubusercontent.com/cttibbetts/769afdc382b4ff3fa83358da13549491/raw -o get-docker.sh
+    sudo sh get-docker.sh
+    rm get-docker.sh
+    sudo usermod -aG docker $USER
+    sudo update-alternatives --set iptables /usr/sbin/iptables-legacy
+}
+
 install_node
 install_asdf
 install_python
+install_docker
 
 # Install customizations
 install_fish() {
@@ -48,9 +57,18 @@ configure_yadm() {
     yadm remote set-url origin "git@github.com:cttibbetts/dotfiles.git"
 }
 
+install_pokemon_colorscripts() {
+    git clone https://gitlab.com/phoneybadger/pokemon-colorscripts.git ~/.poke
+    pushd ~/.pokemon
+    sudo ./install.sh
+    popd
+    rm -rf ~/.pokemon
+}
+
 
 install_fish
 install_starship
 configure_vim
 configure_yadm
+install_pokemon_colorscripts
 
