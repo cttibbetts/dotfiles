@@ -32,8 +32,7 @@ install_fish() {
     sudo apt update
     sudo apt install -y fish
 
-    fish -c "curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher"
-    fish -c "fisher update"
+    fish -N -c "curl -sL https://git.io/fisher | source && fisher udpate"
 }
 
 install_starship() {
@@ -44,8 +43,14 @@ configure_vim() {
     vim +PlugInstall +qa
 }
 
+configure_yadm() {
+    echo "Updating the yadm repo origin URL"
+    yadm remote set-url origin "git@github.com:cttibbetts/dotfiles.git"
+}
+
 
 install_fish
 install_starship
 configure_vim
+configure_yadm
 
