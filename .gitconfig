@@ -3,3 +3,5 @@
 	name = Tucker Tibbetts
 [core]
 	editor = vim
+[pull]
+	rebase = false

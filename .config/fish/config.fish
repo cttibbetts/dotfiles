@@ -18,6 +18,10 @@ source ~/.config/fish/dircolors.fish
 . ~/.asdf/asdf.fish
 . ~/.asdf/completions/asdf.fish
 
+if type -q nvm
+    nvm use --lts > /dev/null &> /dev/null
+end
+
 if type -q starship
     starship init fish | source
 end
