@@ -58,7 +58,7 @@ configure_yadm() {
 }
 
 install_pokemon_colorscripts() {
-    git clone https://gitlab.com/phoneybadger/pokemon-colorscripts.git ~/.poke
+    git clone https://gitlab.com/phoneybadger/pokemon-colorscripts.git ~/.pokemon
     pushd ~/.pokemon
     sudo ./install.sh
     popd
