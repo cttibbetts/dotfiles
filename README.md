@@ -1,2 +1,2 @@
 # dotfiles
-Managed with (yadm)[https://yadm.io/]
+Managed with [yadm](https://yadm.io/)
